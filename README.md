@@ -53,14 +53,14 @@ your my-test folder, in its entirety.  After you do so, the folder hierarchy wil
 
 ```
 Your MBED projects folder
-©À my-test
-  ©À mbed-os
-  ©À Notecard
-    ©À examples
-      ©À 01-Using-Library
-        ©À main.cpp
-      ©À ...
-    ©À note-c
+â”œ  my-test
+  â”œ  mbed-os
+  â”œ  Notecard
+    â”œ  examples
+      â”œ  01-Using-Library
+        â”œ  main.cpp
+      â”œ  ...
+    â”œ  note-c
   ...
 ```
 
@@ -85,6 +85,7 @@ Then, like the example above, you'll compile it and load it onto your board usin
 [vendor-board]: https://www.st.com/en/evaluation-tools/nucleo-l432kc.html
 [mbed-target]: https://os.mbed.com/platforms/ST-Nucleo-L432KC/
 [note-c]: https://github.com/blues/note-c
+[note-mbed]: https://github.com/blues/note-mbed
 [note-arduino]: https://github.com/blues/note-arduino
 [board]: https://www.st.com/en/evaluation-tools/nucleo-l031k6.html
 [reference-manual]: https://www.st.com/resource/en/user_manual/dm00231744.pdf
