@@ -66,14 +66,14 @@ your my-test folder, in its entirety.  After you do so, the folder hierarchy wil
 
 ```
 Your MBED projects folder
-├──  my-test
-  ├── mbed-os
-  ├── Notecard
-    ├── examples
-      ├── 01-Using-Library
-        ├── main.cpp
-      ├── ...
-    ├── note-c
+ my-test
+  ├  mbed-os
+  ├  Notecard
+    ├  examples
+      ├  01-Using-Library
+        ├  main.cpp
+      ├  ...
+    ├  note-c
   ...
 ```
 
