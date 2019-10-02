@@ -69,10 +69,6 @@ Your MBED projects folder
 ├──  my-test
   ├── mbed-os
   ├── Notecard
-    ├── examples
-      ├── 01-Using-Library
-        ├── main.cpp
-      ├── ...
     ├── note-c
   ...
 ```
@@ -80,11 +76,12 @@ Your MBED projects folder
 What this means is that
 - Your project folder, "my-test", contains the mbed OS and all of its support files
 - The Notecard subfolder contains everything in terms of support code to communicate with the Notecard
-- The Notecard folder has examples in it, each of which has a "main.cpp" for that example
+- You now just need a "main.cpp" to run your program
 
-To get started with this example, change your working directory to your my-test project and
+To get started with this example, look in the "examples" subfolder of your cloned copy of this repo.  Then,
+copy one of the example's main.cpp into the main folder of your my-test project
    ```
-   copy Notecard/examples/01-using-Library/main.cpp .
+   copy examples/01-using-Library/* <my-test path>
    ```
 
 If you look at this main.cpp, you'll see that it implements the same functions as the
