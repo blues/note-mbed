@@ -93,6 +93,42 @@ Then, like the example above, you'll compile it and load it onto your board usin
    mbed compile
    copy build\nucleo_l432kc\gcc_arm\*.bin E:
    ```
+## Contributing
+
+
+We love issues, fixes, and pull requests from everyone. By participating in this
+project, you agree to abide by the Blues Inc [code of conduct].
+
+For details on contributions we accept and the process for contributing, see our
+[contribution guide](CONTRIBUTING.md).
+
+## More Information
+
+For Notecard SDKs and Libraries, see:
+
+* [note-c](note-c) for Standard C support
+* [note-go](note-go) for Go
+* [note-python](note-python) for Python
+* [note-arduino](note-arduino) for Arduino
+
+## To learn more about Blues Wireless, the Notecard and Notehub, see:
+
+* [blues.com](https://blues.io)
+* [notehub.io][Notehub]
+* [wireless.dev](https://wireless.dev)
+
+## License
+
+Copyright (c) 2019 Blues Inc. Released under the MIT license. See
+[LICENSE](LICENSE) for details.
+
+[blues]: https://blues.com
+[notehub]: https://notehub.io
+[note-go]: https://github.com/blues/note-go
+[note-python]: https://github.com/blues/note-python
+[archive]: https://github.com/blues/note-arduino/archive/master.zip
+[code of conduct]: https://blues.github.io/opensource/code-of-conduct
+[Notehub]: https://notehub.io
 
 [mbed-cli]: https://os.mbed.com/docs/mbed-os/v5.14/tools/manual-installation.html
 [arm-gcc]: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
