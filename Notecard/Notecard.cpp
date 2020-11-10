@@ -10,7 +10,7 @@ extern "C" {
 	void noteSerialTransmit(uint8_t *text, size_t len, bool flush);
 	bool noteSerialAvailable(void);
 	char noteSerialReceive(void);
-	void noteI2CReset(void);
+	void noteI2CReset(uint16_t DevAddress);
 	const char *noteI2CTransmit(uint16_t DevAddress, uint8_t* pBuffer, uint16_t Size);
 	const char *noteI2CReceive(uint16_t DevAddress, uint8_t* pBuffer, uint16_t Size, uint32_t *avail);
 	size_t debugSerialOutput(const char *message);
@@ -98,7 +98,7 @@ char noteSerialReceive() {
 }
 
 // I2C port reset
-void noteI2CReset() {
+void noteI2CReset(uint16_t DevAddress) {
 }
 
 // Transmits in master mode an amount of data in blocking mode.	 The address
