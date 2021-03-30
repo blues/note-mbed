@@ -18,7 +18,7 @@ clean up inconsistent whitespace )
 * by closing [issues][]
 * by reviewing patches
 
-[issues]: https://blues.github.com/note-mbed/issues
+[issues]: https://github.com/blues/note-mbed/issues
 
 ## Submitting an Issue
 
