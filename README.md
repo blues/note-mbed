@@ -2,7 +2,7 @@
 
 This example uses the Notecard and the [note-mbed][note-mbed] library with your MBED program.
 
-First, you'll need to install the [mbed-cli][mbed-cli] onto your PC.  After this is installed and
+First, you'll need to install the [mbed-cli v1][mbed-cli] onto your PC.  After this is installed and
 the path/environment is set up correctly, the "mbed" command should work.
 
 Download the [ARM GCC toolchain][arm-gcc] compiler.  Then configure MBED to use that toolchain by typing something like this, substituting your own path and making sure that
@@ -88,6 +88,16 @@ If you look at this main.cpp, you'll see that it implements the same functions a
 [note-arduino][note-arduino] library's analogous example.  The example has been tested using both Serial and I2C,
 and so you can use either one as is your preference.
 
+## Setting MBED OS
+This repository requires MBED OS V5.15.  It is not compatible with MBED OS V6
+
+To update the MBED version
+```
+cd mbed-os
+mbed update mbed-os-5.15.8
+```
+
+## Compilation
 Then, like the example above, you'll compile it and load it onto your board using this command
    ```
    mbed compile
@@ -130,7 +140,7 @@ Copyright (c) 2019 Blues Inc. Released under the MIT license. See
 [code of conduct]: https://blues.github.io/opensource/code-of-conduct
 [Notehub]: https://notehub.io
 
-[mbed-cli]: https://os.mbed.com/docs/mbed-os/v5.14/tools/manual-installation.html
+[mbed-cli]: https://os.mbed.com/docs/mbed-os/v6.15/build-tools/install-and-set-up.html
 [arm-gcc]: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
 [vendor-board]: https://www.st.com/en/evaluation-tools/nucleo-l432kc.html
 [mbed-target]: https://os.mbed.com/platforms/ST-Nucleo-L432KC/

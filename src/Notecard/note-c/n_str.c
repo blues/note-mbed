@@ -20,13 +20,18 @@
  */
 
 #include <string.h>
+#include "note.h"
 
 /*
  * Copy src to string dst of size siz.  At most siz-1 characters
  * will be copied.  Always NUL terminates (unless siz == 0).
  * Returns strlen(src); if retval >= siz, truncation occurred.
  */
+#if defined(_MSC_VER)
+size_t strlcpy(char *dst, const char *src, size_t siz)
+#else
 __attribute__((weak)) size_t strlcpy(char *dst, const char *src, size_t siz)
+#endif
 {
     char *d = dst;
     const char *s = src;
@@ -35,15 +40,17 @@ __attribute__((weak)) size_t strlcpy(char *dst, const char *src, size_t siz)
     /* Copy as many bytes as will fit */
     if (n != 0) {
         while (--n != 0) {
-            if ((*d++ = *s++) == '\0')
+            if ((*d++ = *s++) == '\0') {
                 break;
+            }
         }
     }
 
     /* Not enough room in dst, add NUL and traverse rest of src */
     if (n == 0) {
-        if (siz != 0)
-            *d = '\0';        /* NUL-terminate dst */
+        if (siz != 0) {
+            *d = '\0';    /* NUL-terminate dst */
+        }
         while (*s++)
             ;
     }
@@ -58,7 +65,11 @@ __attribute__((weak)) size_t strlcpy(char *dst, const char *src, size_t siz)
  * Returns strlen(src) + MIN(siz, strlen(initial dst)).
  * If retval >= siz, truncation occurred.
  */
+#if defined(_MSC_VER)
+size_t strlcat(char *dst, const char *src, size_t siz)
+#else
 __attribute__((weak)) size_t strlcat(char *dst, const char *src, size_t siz)
+#endif
 {
     char *d = dst;
     const char *s = src;
@@ -66,13 +77,15 @@ __attribute__((weak)) size_t strlcat(char *dst, const char *src, size_t siz)
     size_t dlen;
 
     /* Find the end of dst and adjust bytes left but don't go past end */
-    while (n-- != 0 && *d != '\0')
+    while (n-- != 0 && *d != '\0') {
         d++;
+    }
     dlen = d - dst;
     n = siz - dlen;
 
-    if (n == 0)
+    if (n == 0) {
         return(dlen + strlen(s));
+    }
     while (*s != '\0') {
         if (n != 1) {
             *d++ = *s;
