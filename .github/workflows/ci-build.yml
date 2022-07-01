@@ -1,0 +1,31 @@
+name: Note MBED CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate_examples: # job id
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    strategy:
+      matrix:
+        example:
+          - ./examples/01-Using-Library
+        target:
+          - NUCLEO_L432KC
+        toolchain:
+          - GCC_ARM
+    steps:
+      - name: Checkout Code
+        id: checkout
+        uses: actions/checkout@v2
+      - name: Compile Examples
+        id: compile_mbed_xamples
+        uses: ./.github/actions/compile-mbed-example
+        with:
+          example: ${{ matrix.example }}
+          target: ${{ matrix.target }}
+          toolchain: ${{ matrix.toolchain }}

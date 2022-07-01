@@ -1,0 +1,24 @@
+name: 'Compile mbed example'
+author: 'Matthew McGowan'
+description: 'Compiles an mbed program for a given target and toolchain'
+inputs:
+  target:
+    description: "The target board"
+    required: true
+  example:
+    description: "Directory relative to the repo root of the example to compile"    
+    required: true
+  toolchain: 
+    description: "The toolchain to use to build the example"
+    required: false
+    default: GCC_ARM
+runs:
+  using: 'docker'
+  image: './Dockerfile'
+  entrypoint: 'bash'
+  args:
+    - -c
+    - ".github/actions/compile-mbed-example/compile.sh \
+      ${{ inputs.example }} \
+      ${{ inputs.target }} 
+      ${{ inputs.tookchain }}"
