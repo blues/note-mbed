@@ -92,3 +92,6 @@ RUN ["dash", "-c", "\
     cd $cwd \
     "]
 
+USER ${USER}
+WORKDIR /host-volume
+ENTRYPOINT ["dash"]
