@@ -15,10 +15,9 @@ inputs:
 runs:
   using: 'docker'
   image: './Dockerfile'
-  entrypoint: 'bash'
+  entrypoint: bash
   args:
-    - -c
-    - ".github/actions/compile-mbed-example/compile.sh \
-      ${{ inputs.example }} \
-      ${{ inputs.target }} 
-      ${{ inputs.tookchain }}"
+    - '.github/actions/compile-mbed-example/compile.sh \
+      "${{ inputs.example }}" \
+      "${{ inputs.target }}" \
+      "${{ inputs.tookchain }}"'

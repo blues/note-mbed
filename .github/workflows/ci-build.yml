@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Code
         id: checkout
         uses: actions/checkout@v2
-      - name: Compile Examples
+      - name: Compile mbed examples
         id: compile_mbed_xamples
         uses: ./.github/actions/compile-mbed-example
         with:

@@ -85,13 +85,10 @@ RUN ["dash", "-c", "\
         markupsafe==2.0.1 \
         https://github.com/python-intelhex/intelhex/releases/download/2.3.0/intelhex-2.3.0-py2.py3-none-any.whl && \    
     mbed new /mbed-ci && \
-    cwd=$(pwd) \
-    cd /mbed-ci/mbed-os \    
+    cwd=$(pwd) && \
+    cd /mbed-ci/mbed-os && \    
     mbed update mbed-os-5.15.8 && \
-    chown -R ${USER} /mbed-ci && \
     cd $cwd \
     "]
 
-USER ${USER}
-WORKDIR /host-volume
-ENTRYPOINT ["dash"]
+ENTRYPOINT ["mbed", "help"]
