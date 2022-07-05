@@ -17,6 +17,9 @@ runs:
   image: './Dockerfile'
   entrypoint: "/entrypoint.sh"
   args:
+    - ./examples/01-Using-Library
+    - NUCLEO_L432KC
+    - GCC_ARM
     - "${{ inputs.example }}"
     - "${{ inputs.target }}"
     - "${{ inputs.tookchain }}"
