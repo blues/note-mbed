@@ -91,4 +91,9 @@ RUN ["dash", "-c", "\
     cd $cwd \
     "]
 
-ENTRYPOINT ["mbed", "help"]
+COPY compile.sh /entrypoint.sh
+
+USER ${USER}
+WORKDIR /host-volume
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["help"]

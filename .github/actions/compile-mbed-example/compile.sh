@@ -3,7 +3,12 @@ EXAMPLE="$1"
 TARGET="$2"
 TOOLCHAIN="$3"
 
-# echo "Building mbed example $EXAMPLE for target $TARGET using toolchain $TOOLCHAIN"
+if [[ "$EXAMPLE" == "help" || -z "$EXAMPLE" ]]; then
+echo "Usage: compile.sh <example> <target> <toolchain>"
+exit 1
+fi
+
+echo "Building mbed example $EXAMPLE for target $TARGET using toolchain $TOOLCHAIN"
 
 cp -r Notecard /mbed-ci/
 cp -r src/Notecard/* /mbed-ci/Notecard
