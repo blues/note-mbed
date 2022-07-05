@@ -58,7 +58,7 @@ RUN ["dash", "-c", "\
      python-is-python3 \
      python3 \
      python3-dev \
-     python3-pip \     
+     python3-pip \
      ssh \
      tree \
      wget \
@@ -83,10 +83,10 @@ RUN ["dash", "-c", "\
     python3 -m pip install \
         mbed-cli \
         markupsafe==2.0.1 \
-        https://github.com/python-intelhex/intelhex/releases/download/2.3.0/intelhex-2.3.0-py2.py3-none-any.whl && \    
+        https://github.com/python-intelhex/intelhex/releases/download/2.3.0/intelhex-2.3.0-py2.py3-none-any.whl && \
     mbed new /mbed-ci && \
     cwd=$(pwd) && \
-    cd /mbed-ci/mbed-os && \    
+    cd /mbed-ci/mbed-os && \
     mbed update mbed-os-5.15.8 && \
     cd $cwd \
     "]

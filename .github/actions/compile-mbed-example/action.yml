@@ -6,9 +6,9 @@ description: 'Compiles an mbed program for a given target and toolchain'
 #     description: "The target board"
 #     required: true
 #   example:
-#     description: "Directory relative to the repo root of the example to compile"    
+#     description: "Directory relative to the repo root of the example to compile"
 #     required: true
-#   toolchain: 
+#   toolchain:
 #     description: "The toolchain to use to build the example"
 #     required: false
 #     default: GCC_ARM
@@ -17,10 +17,6 @@ runs:
   image: './Dockerfile'
   entrypoint: "/entrypoint.sh"
   args:
-    - ./examples/01-Using-Library
-    - NUCLEO_L432KC
-    - GCC_ARM
     - "${{ inputs.example }}"
     - "${{ inputs.target }}"
-    - "${{ inputs.tookchain }}"
-
+    - "${{ inputs.toolchain }}"

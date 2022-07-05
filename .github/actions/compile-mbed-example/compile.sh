@@ -15,7 +15,7 @@ cp -r src/Notecard/* /mbed-ci/Notecard
 cp -r $EXAMPLE/* /mbed-ci
 
 pushd /mbed-ci
-mbed compile --target=$TARGET --toolchain=$TOOLCHAIN 
+mbed compile --target=$TARGET --toolchain=$TOOLCHAIN
 result=$?
 popd
 exit $result
