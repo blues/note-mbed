@@ -58,7 +58,8 @@ RUN ["dash", "-c", "\
      python-is-python3 \
      python3 \
      python3-dev \
-     python3-pip \     
+     python3-pip \
+     python3-venv \
      ssh \
      tree \
      wget \
@@ -77,23 +78,36 @@ RUN wget -O archive.tar.bz2 "https://developer.arm.com/-/media/Files/downloads/g
 
 ENV PATH=/opt/gcc-arm-none-eabi-9-2019-q4-major/bin:$PATH
 
+RUN ["dash", "-c", "\
+    python3 -m pip install virtualenv && \
+    python3 -m venv /venv && \
+    . /venv/bin/activate"]
+
 # fix version of markupsafe - https://github.com/aws/aws-sam-cli/issues/3661
 # need intelhex 2.3.0, but not available in PyPI https://github.com/adafruit/Adafruit_nRF52_Arduino/pull/597
 RUN ["dash", "-c", "\
-    python3 -m pip install \
+    python3 -m pip install -U \
         mbed-cli \
         markupsafe==2.0.1 \
-        https://github.com/python-intelhex/intelhex/releases/download/2.3.0/intelhex-2.3.0-py2.py3-none-any.whl && \    
-    mbed new /mbed-ci && \
+        intelhex==2.3.0 \
+    "]
+
+RUN ["dash", "-c", "\
+    mkdir /mbed-ci && \
     cwd=$(pwd) && \
-    cd /mbed-ci/mbed-os && \    
+    cd / && \
+    mbed new mbed-ci && \
+    cd /mbed-ci/mbed-os && \
     mbed update mbed-os-5.15.8 && \
     cd $cwd \
     "]
 
+RUN ["dash", "-c", "\
+    mbed config -G GCC_ARM_PATH /opt/gcc-arm-none-eabi-9-2019-q4-major/bin \
+    "]
+
 COPY compile.sh /entrypoint.sh
 
-USER ${USER}
 WORKDIR /host-volume
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["help"]
