@@ -4,8 +4,6 @@
 
 #include "Notecard.h"
 
-#error I'm so bad
-
 // Forward references to C-callable functions defined below
 extern "C" {
 	bool noteSerialReset(void);
